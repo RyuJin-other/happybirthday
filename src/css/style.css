@@ -1,3 +1,50 @@
 p {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+/* .gradien-outline {
+  outline-color: linear-gradient(0deg, #474bff 0%, #bc48ff 100%);
+} */
+
+/* From Uiverse.io by alexroumi */
+button {
+  padding: 8px 24px;
+  border: unset;
+  border-radius: 8px;
+  color: #212121;
+  z-index: 1;
+  background: #fff;
+  position: relative;
+  font-weight: 500;
+  /* font-size: 17px;
+ -webkit-box-shadow: 2px 8px 14px -3px rgba(0,0,0,0.27);
+ box-shadow: 2px 8px 11px -3px rgba(0,0,0,0.27); */
+  transition: all 400ms;
+  overflow: hidden;
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 8px;
+  /* @apply bg-purple-500; */
+  background-color: #a855f7;
+  /* background-color: #c084fc; */
+  z-index: -1;
+  /* -webkit-box-shadow: 2px 8px 14px -3px rgba(0,0,0,0.27); */
+  /* box-shadow: 2px 8px 14px -3px rgba(0,0,0,0.27); */
+  transition: all 400ms;
+}
+
+button:hover {
+  color: #fff;
+}
+
+button:hover::before {
+  width: 100%;
 }
