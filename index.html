@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello 👋</title>
+    <link rel="icon" href="img/0e3334e1-95c6-44b7-af40-76260b7b7a5b.jpg" />
+    <link rel="stylesheet" href="src/css/output.css" />
+    <link rel="stylesheet" href="/src/css/style.css" />
+  </head>
+  <body
+    class="bg-purple-300 flex justify-center items-center min-h-screen sm:h-72 lg:h-[50vh]"
+  >
+    <div class="bg-white border-2 rounded-xl p-6 text-center max-w-sm mx-auto">
+      <h1 id="topText" class="mb-4 text-lg font-semibold text-gray-700">
+        Hallo Adeel 👋
+      </h1>
+      <img
+        id="catImage"
+        src="src/img/0e3334e1-95c6-44b7-af40-76260b7b7a5b.jpg"
+        alt="Cute Cat"
+        class="w-full max-w-xs mx-auto mb-4 rounded-lg"
+      />
+      <p id="buttomText" class="mb-4 text-gray-500 text-base font-light"></p>
+      <div id="btn" class="text-center mx-auto flex justify-center">
+        <button id="back" style="display: none" class="mr-2">[BACK]</button>
+        <button id="next">[NEXT]</button>
+      </div>
+    </div>
+
+    <script>
+      const contentList = [
+        {
+          img: "src/img/0e3334e1-95c6-44b7-af40-76260b7b7a5b.jpg",
+          topText: "Hallo Adeel",
+          buttomText: false,
+        },
+        {
+          img: "src/img/(๑•̀ㅂ•́)ﾉ➹♡ ʙᴇᴀʀ & ᴘᴀɴᴅᴀ_copy.jpg",
+          topText: "Happy Birthday 🥳",
+          buttomText: "Selamat Ulang tahun yang ke-24 Adeeel. 😊😊",
+        },
+        {
+          img: "src/img/Stiker 3 (SFILE.MOBI).gif",
+          topText: "",
+          buttomText:
+            "Semoga selalu diberikan kebahagiaan, urusan segera dapat diselesaikan, dan kalau daftar cpns tahun ini semoga dapat diterima.",
+        },
+        {
+          img: "src/img/Stiker 46 (SFILE.MOBI).gif",
+          topText: false,
+          buttomText:
+            "Intinya semoga bahagia selalu dan dimudahkan semua urusannya, amiiiin 😊😊",
+        },
+      ];
+
+      let currentIndex = 0; // Index awal
+
+      const topText = document.getElementById("topText");
+      const img = document.getElementById("catImage");
+      const buttomText = document.getElementById("buttomText");
+      const btnNext = document.getElementById("next");
+      const btnBack = document.getElementById("back");
+      const btn = document.getElementById("btn");
+
+      function updateContent() {
+        const currentContent = contentList[currentIndex];
+        topText.textContent = currentContent.topText;
+        buttomText.textContent = currentContent.buttomText;
+        img.src = currentContent.img;
+
+        if (currentContent.topText === false) {
+          topText.style.display = "none";
+        } else {
+          topText.style.display = "block";
+        }
+
+        if (currentContent.buttomText === false) {
+          buttomText.style.display = "none";
+        } else {
+          buttomText.style.display = "block";
+        }
+
+        // Sembunyikan tombol "BACK" jika di index 0 (awal list)
+        if (currentIndex === 0) {
+          btnBack.style.display = "none";
+        } else {
+          // Tampilkan tombol "BACK"
+          btnBack.style.display = "block";
+          btnBack.style.marginLeft = "8px";
+        }
+
+        // Sembunyikan tombol "NEXT" jika di index terakhir (akhir list)
+        if (currentIndex === contentList.length - 1) {
+          btnNext.style.display = "none";
+          btnBack.style.marginLeft = "0px";
+        } else {
+          btnNext.style.display = "block"; // Tampilkan tombol "NEXT"
+        }
+      }
+
+      // Event Listener untuk tombol "NEXT"
+      btnNext.addEventListener("click", function () {
+        if (currentIndex < contentList.length - 1) {
+          currentIndex++; // Pindah ke konten berikutnya
+          updateContent(); // Perbarui gambar dan teks
+        }
+      });
+
+      // Event Listener untuk tombol "BACK"
+      btnBack.addEventListener("click", function () {
+        if (currentIndex > 0) {
+          currentIndex--; // Kembali ke konten sebelumnya
+          updateContent(); // Perbarui gambar dan teks
+        }
+      });
+      updateContent();
+    </script>
+  </body>
+</html>
